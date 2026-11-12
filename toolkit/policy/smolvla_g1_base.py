@@ -62,10 +62,14 @@ def load_g1_policy(policy_dir: Path, dataset_stats: dict, device: str = "cuda"):
     preentrenado: las estadísticas del dataset reemplazan a las guardadas, y la
     cámara se renombra a `camera1`.
     """
+    from lerobot.configs.policies import PreTrainedConfig
     from lerobot.policies.factory import make_pre_post_processors
     from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy
 
-    policy = SmolVLAPolicy.from_pretrained(policy_dir).to(device).eval()
+    # La config guardada trae su propio `device`, y el VLM se carga directo ahí: hay que pisarlo antes.
+    config = PreTrainedConfig.from_pretrained(policy_dir)
+    config.device = device
+    policy = SmolVLAPolicy.from_pretrained(policy_dir, config=config).to(device).eval()
     features = {**policy.config.input_features, **policy.config.output_features}
     preprocessor, postprocessor = make_pre_post_processors(
         policy.config,
