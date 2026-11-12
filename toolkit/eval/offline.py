@@ -51,6 +51,9 @@ def episode_frames(dataset: LeRobotDataset, episode_index: int) -> pd.DataFrame:
 @torch.no_grad()
 def predict_chunk(loaded: LoadedPolicy, frame: dict) -> np.ndarray:
     observation = {k: v for k, v in frame.items() if k.startswith(OBSERVATION_PREFIX)}
+    if "task" in frame:
+        # Los VLA leen la instrucción; a las políticas que no la usan no les cambia nada.
+        observation["task"] = frame["task"]
     batch = loaded.preprocessor(observation)
     normalized = loaded.policy.predict_action_chunk(batch)
     return loaded.postprocessor(normalized)[0].cpu().numpy()
