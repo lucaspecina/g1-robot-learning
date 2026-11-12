@@ -1,8 +1,6 @@
 [project]
 name = "g1-robot-learning"
 version = "0.1.0"
-description = "G1 notebooks and tools"
-readme = "README.md"
 # unitree_lerobot declares <3.11; LeRobot 0.4.1 needs >=3.10.
 requires-python = ">=3.10,<3.11"
 dependencies = [
