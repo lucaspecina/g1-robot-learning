@@ -9,7 +9,7 @@
 
 ACT mira **sólo el instante actual**: las imágenes y los ángulos de ahora. No
 sabe qué hizo hace un segundo. En el paper original son 4 cámaras; en nuestro
-modelo es una sola, que se vuelve 240 tokens por instante (notebooks 08 a 12).
+modelo es una sola, que se vuelve 240 tokens por instante (L3).
 
 Se eligió así a propósito, para evitar la **confusión causal**: si la red ve su
 propio pasado, puede aprender el atajo "seguí haciendo lo que venías haciendo"
@@ -93,7 +93,7 @@ La idea original: reusar la `z` del bloque anterior para que el robot no cambie
 de modo a mitad de camino.
 
 - Con nuestra ACT no anda: `z` vale cero al predecir y el modelo la ignora
-  (*posterior collapse*, notebook 09).
+  (*posterior collapse*, notebook L3).
 - Pero el problema es real. Bidirectional Decoding (Liu, ..., Finn, ICLR 2025)
   sortea varios bloques candidatos y elige con dos criterios: coherencia con lo
   que venía haciendo y contraste hacia adelante (que el plan futuro sea

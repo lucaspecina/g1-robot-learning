@@ -51,7 +51,7 @@ LeRobot, los números salen inválidos.
 ## Evaluación offline (2-oct-2026)
 
 Sobre los 7 episodios no vistos, con
-[`notebooks/14-offline-eval-act.ipynb`](../notebooks/14-offline-eval-act.ipynb).
+[`notebooks/05-offline-eval-act.ipynb`](../notebooks/05-offline-eval-act.ipynb).
 Error absoluto medio en radianes, promediado sobre las 26 articulaciones y los
 48 pasos del bloque:
 

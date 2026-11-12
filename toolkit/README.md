@@ -49,12 +49,12 @@ python -m toolkit.checks.normalization \
   cuando el dataset es local o todos sus episodios comparten archivo: sólo
   decide qué archivos bajar del Hub. Para separar entrenamiento y evaluación,
   partir el dataset con `lerobot.datasets.dataset_tools.split_dataset`.
-  Detalle en `notebooks/04-lerobot-dataset.ipynb`.
+  Detalle en `notebooks/learn/l2-lerobot-dataset.ipynb`.
 - **El desvío de las imágenes en `stats.json` es falso en LeRobot 0.4.1**:
   calcula sobre `uint8` y el desvío por episodio sale 0 (corregido en la rama
   principal de LeRobot). No afecta mientras se entrene con
   `use_imagenet_stats=true` (el default). Detalle en
-  `notebooks/07-normalization-and-processors.ipynb`.
+  `notebooks/learn/l4-normalization-and-processors.ipynb`.
 
 ## Notas de plataforma
 
