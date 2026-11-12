@@ -6,7 +6,7 @@ requires-python = ">=3.10,<3.11"
 dependencies = [
     # Same version that the official unitree_lerobot pins as a submodule and
     # that loads our first ACT checkpoint.
-    "lerobot==0.4.1",
+    "lerobot[smolvla]==0.4.1",
     "unitree-lerobot",
     "opencv-python-headless>=4.9",
     "tyro>=0.9.10",
